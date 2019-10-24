@@ -1,0 +1,22 @@
+.mainHeading {
+  background-color: lightblue;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+.logo {
+  color: red;
+  font-size: 70px;
+  font-family: "Kaushan Script", cursive;
+  margin: 15px;
+}
+.description {
+  color: white;
+  font-size: 45px;
+  font-family: "Istok Web", sans-serif;
+  margin: 10px;
+}
+
+.star {
+  height: 150px;
+}
