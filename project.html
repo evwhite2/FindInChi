@@ -84,17 +84,23 @@
         </div>
           <img class="star" src="./CSS/images/singleStar.png" alt="chicagostar" />
         </div>
-        <div class="input-container text-center">
+        <div class="row text-center">
+          <div class="col-12">
+              <div class="input-container text-center">
           <i class="fa fa-map-marker-alt" id="mapMarker"></i>
           <input
             type="text"
             id="cities"
-            placeholder="Performer,Venue, or Zipcode"
+            placeholder="Find things to do"
             name="search"
           />
-        </div>
-        <div class="row text-center">
-          <div class="col-12">
+                <select class="searchSelector">
+                  <option value="0">Please Select</option>
+                  <option value="1">Performer</option>
+                  <option value="2">Venue</option>
+                  <option value="2">Zip Code</option>
+                </select>
+              
             <button
               type="button"
               id="submit"
