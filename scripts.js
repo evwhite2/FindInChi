@@ -34,13 +34,27 @@ function callEvents(){
     };
 
 
-$.ajax(settings).then(function(response){
-    console.log(response);
-
-    // $("#headLine").text(response.events[0].title);
-    // $("#venueName").text(response.events[0].venue.name);
-    // $("#eventLocation").text(response.events[0].venue.address);
-    // $("#eventDate").text(response.events[0].datetime_local);
-});
+    $.ajax(settings).then(function(response){
+        console.log(response);
+    
+        for (var i= 0; i<10; i++) {
+            
+        var newEle0= $("<div>");
+        var newEle1= $("<div>");
+        var newEle2= $("<div>");
+        
+        newEle0.addClass("headLine");
+        newEle1.addClass("venueName");
+        newEle2.addClass("eventLocation");
+        
+        newEle0.text(response.events[i].title);
+        newEle1.text(response.events[i].venue.name);
+        newEle2.text(response.events[i].venue.address);
+        $(".eventDate").text(response.events[i].datetime_local);
+    
+        $("#event-wrap").append(newEle0, newEle1, newEle2);
+        }
+    
+    });
 
 }
