@@ -1,3 +1,4 @@
+
 var seatGeekBase= "https://api.seatgeek.com/2";
 var myKey= "&client_id=MTY5MzA1NDd8MTU3MTg3NTc4Mi40NA";
 var venuesKey= "/venues?";
@@ -16,6 +17,7 @@ var byZip= "&postal_code=";
 // /venues/{VENUE_ID}
 
 var userInput="music";
+var searchSelector=
 
 $("#submit").on("click", callEvents);
 
@@ -24,7 +26,7 @@ function callEvents(){
     console.log("click")
     userInput= "q="+$("#cities").val().trim();
     console.log("user input: "+ userInput);
-
+    
     var query= seatGeekBase+byEvents+userInput+myKey;
 
     var settings= 
@@ -56,5 +58,4 @@ function callEvents(){
         }
     
     });
-
 }
