@@ -23,6 +23,11 @@ $("#submit").on("click", callEvents);
 
 function callEvents(){
 
+    $(".headLine").empty();
+    $(".venueName").empty();
+    $(".eventLocation").empty();
+    $(".eventDate").empty();
+
     console.log("click")
     userInput= "q="+$("#cities").val().trim();
     console.log("user input: "+ userInput);
