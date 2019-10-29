@@ -90,50 +90,36 @@
           <div class="control">
             <input class="input is-large col-md-6" type="text" id="cities" placeholder="Find things to do" name= "search">
           </div>
-          <div class="dropdown is-active"> 
-            <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span> Please Select </span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true">
-                  </i>
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                  <a href="#" class="dropdown-item">
-                    Performer
-                  </a>
-                  <hr class="dropdown-divider">
-                  <a href="#" class="dropdown-item">
-                   Venue
-                 </a>
-                 <hr class="dropdown-divider">
-                  <a href="#" class="dropdown-item">
-                   Zip Code
-                 </a>
-               </div>
-            </div>
-            
-         
-          </div>
-        </div>
+
 
 
         <div class="row text-center">
-          
-                <select class="searchSelector">
-                  <option value="0">Please Select</option>
-                  <option value="1">Performer</option>
-                  <option value="2">Venue</option>
-                  <option value="2">Zip Code</option>
-                </select>
-              
+          <div class="dropdown is-active"> 
+              <div class="dropdown-trigger">
+                
+                    <select id="searchSelector" class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                      <option class="icon is-small" value="0">Please Select</option> 
+                      <i class="fas fa-angle-down" aria-hidden="true">
+                      </i>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                      <option class="dropdown-item" value="1">Performer</option>
+                      
+                      <hr class="dropdown-divider">
+                      <option class="dropdown-item" value="2">Venue</option>
+                      
+                      <hr class="dropdown-divider">
+                      <option class="dropdown-item" value="3">Zip Code</option>
+                    </select>
+                  </div>
+              </div>
+          </div>
+    
             <button
               type="button"
               id="submit"
-              class="btn text-center"
+              class="button is-primary text-center"
               data-toggle="modal"
               data-target="#citesModal"
             >
