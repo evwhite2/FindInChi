@@ -67,7 +67,7 @@ function callEvents(){
             var sryMsgSub=$("<h3>").addClass("sryMsgSub");
             sryMsg.text("Sorry we couldn't find any upcoming events based on your search for '"+initialInput+"'.")
             sryMsgSub.text("Check your spelling or try changing the search parameters.");
-
+          
             $("#event-wrap").append(sryMsg, sryMsgSub);
 
         }else{
@@ -88,6 +88,30 @@ function callEvents(){
             //no image in the kind of search
             newLink.addClass("eventLink");
 
+            sryMsg.text("Sorry we couldn't find any upcoming events based on your search.")
+            sryMsgSub.text("Check your spelling or try changing the search parameters.");
+
+            $("#event-wrap").append(sryMsg, sryMsgSub);
+
+        }else{
+
+            for (var i= 0; i<10; i++) {
+                
+            var newEle0= $("<div>");
+            var newEle1= $("<div>");
+            var newEle2= $("<div>");
+            var newEle3= $("<div>");
+            // var newImg= $("<img>");
+            var newLink=$("<a>");
+
+            newEle0.addClass("headLine");
+            newEle1.addClass("venueName");
+            newEle2.addClass("eventLocation");
+            newEle3.addClass("eventDate");
+            // newImg.addClass("eventImg");
+            newLink.addClass("eventLink");
+
+
             newEle0.text(response.events[i].title);
             newEle1.text(response.events[i].venue.name);
             newEle2.text(response.events[i].venue.address);
@@ -96,6 +120,7 @@ function callEvents(){
             newLink.text("Click here to find tickets");
             
             
+
             $("#event-wrap").append(newEle0, newEle1, newEle2, newEle3);
             }
             if(response.events[i].url==""){
