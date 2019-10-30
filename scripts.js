@@ -20,8 +20,8 @@ var userInput="music";
 $("#submit").on("click", callEvents);
 
 function callEvents(){
-    
-    userInput= "q="+$("#cities").val().trim();
+    var initialInput= $("#cities").val().trim();
+    userInput= "q="+initialInput;
     console.log("user input: "+ userInput);
 
     var query= seatGeekBase+byEvents+userInput+myKey;
@@ -65,26 +65,49 @@ function callEvents(){
         $(".venueName").empty();
         $(".eventLocation").empty();
         $(".eventDate").empty();
+        $(".sryMsg").empty();
+        $(".sryMsgSub").empty();
 
-        for (var i= 0; i<10; i++) {
+        if (response.events.length==0){
+            var sryMsg=$("<h1>").addClass("sryMsg");
+            var sryMsgSub=$("<h3>").addClass("sryMsgSub");
+            sryMsg.text("Sorry we couldn't find any upcoming events based on your search.")
+            sryMsgSub.text("Check your spelling or try changing the search parameters.");
+
+            $("#event-wrap").append(sryMsg, sryMsgSub);
+
+        }else{
+
+            for (var i= 0; i<10; i++) {
+                
+            var newEle0= $("<div>");
+            var newEle1= $("<div>");
+            var newEle2= $("<div>");
+            var newEle3= $("<div>");
+            // var newImg= $("<img>");
+            var newLink=$("<a>");
+
+            newEle0.addClass("headLine");
+            newEle1.addClass("venueName");
+            newEle2.addClass("eventLocation");
+            newEle3.addClass("eventDate");
+            // newImg.addClass("eventImg");
+            newLink.addClass("eventLink");
+
+            newEle0.text(response.events[i].title);
+            newEle1.text(response.events[i].venue.name);
+            newEle2.text(response.events[i].venue.address);
+            newEle3.text(response.events[i].datetime_local);
+            newLink.attr("href", response.events[i].url);
+            newLink.text("Click here to find tickets");
             
-        var newEle0= $("<div>");
-        var newEle1= $("<div>");
-        var newEle2= $("<div>");
-        var newEle3= $("<div>");
+            
+            $("#event-wrap").append(newEle0, newEle1, newEle2, newEle3, newLink);
+            }
+        }   
 
-        newEle0.addClass("headLine");
-        newEle1.addClass("venueName");
-        newEle2.addClass("eventLocation");
-        newEle3.addClass("eventDate");
 
-        newEle0.text(response.events[i].title);
-        newEle1.text(response.events[i].venue.name);
-        newEle2.text(response.events[i].venue.address);
-        newEle3.text(response.events[i].datetime_local);
 
-        $("#event-wrap").append(newEle0, newEle1, newEle2, newEle3);
-        }
 
     };
 
@@ -95,20 +118,24 @@ function callEvents(){
         $(".venueName").empty();
         $(".eventLocation").empty();
         $(".eventDate").empty();
+        $(".sryMsg").empty();
+        $(".sryMsgSub").empty();
 
-        if(response.performers[0].has_upcoming_events=== false){
-            var newEle0= $("<div>");
-            newEle0.addClass("headLine");
-            newEle0.text("Sorry, we don't see any upcoming events for this performer.");
-            $("#event-wrap").append(newEle0);
-            
+        if(response.performers.length===0
+            // this following tag is not working and I don't know why currently, but if made function could improve the results feedback: 
+            // || response.performers[0].has_upcoming_events==false
+             ){
+
+            var sryMsg=$("<h1>").addClass("sryMsg");
+            var sryMsgSub=$("<h3>").addClass("sryMsgSub");
+            sryMsg.text("Sorry we couldn't find any upcoming events based on your search for '"+initialInput+"'");
+            sryMsgSub.text("Check your spelling or try changing the search parameters.");
+
+            $("#event-wrap").append(sryMsg, sryMsgSub);
 
         }else{
             
             for (var i= 0; i<10; i++) {
-        
-        // var continueEvent=response
-        
         
             var newEle0= $("<div>");
             var newEle1= $("<div>");
@@ -127,8 +154,6 @@ function callEvents(){
 
             newEle0.text(response.performers[i].short_name);
             newEle1.text(response.performers[i].location);
-            // newEle2.text(response.performers[i].venue.address);
-            // newEle3.text(response.events[i].datetime_local);
             newLink.attr("href", response.performers[i].url);
             newImg.attr("src", response.performers[i].images.huge);
 
