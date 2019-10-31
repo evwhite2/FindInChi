@@ -2,6 +2,7 @@
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
+  
 }
 
 .navbar a {
@@ -80,9 +81,16 @@
 }
 
 .control {
-  width: 65%;
+  width: 75%;
 }
-
+.menu{
+ margin: 10px;
+ 
+}
+.button{
+  margin: 10px;
+  
+}
 .box {
   background-color: #add8e0;
   color: black;
@@ -90,4 +98,19 @@
 .headLine {
   font-size: 30 px;
   font-weight: bolder;
+}
+.navbar2 {
+  overflow: hidden;
+  background-color: #333;
+  color:white;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Kaushan Script", cursive;
+}
+#mapLabel {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  font-family: "Kaushan Script", cursive;
+  padding:15px;
 }
