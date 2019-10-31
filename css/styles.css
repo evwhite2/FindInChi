@@ -57,7 +57,7 @@
 }
 
 .mainHeading {
-  background-color: lightblue;
+  background-color: #add8e6;
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -80,5 +80,14 @@
 }
 
 .control {
-   width: 65%; 
+  width: 65%;
+}
+
+.box {
+  background-color: #add8e0;
+  color: black;
+}
+.headLine {
+  font-size: 30 px;
+  font-weight: bolder;
 }

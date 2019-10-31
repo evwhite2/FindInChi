@@ -68,73 +68,76 @@
                               <a href="#ONICE">ON ICE</a>
                            <a href="#Circus">Circus</a>
                                </div>
-                            </div>
                           </div>
-                        </div>
-                      </div>
-                   </div>
+                    </div>
+      </div>
+                      <!-- </div>
+                   </div> -->
                         
-    <div class="container">
+  
       </header>  
+      <div class="container">
       <div class="jumbotron">
         <div class="mainHeading">
           <img class="star" src="./CSS/images/singleStar.png" alt="chicagostar" />
           <div class="headingText">
-          <h1 class="logo">FindInChi!</h1>
-          <p class="description">Things to do in Chicago</p>
-        </div>
+            <h1 class="logo">FindInChi!</h1>
+            <p class="description">Things to do in Chicago</p>
+          </div>
           <img class="star" src="./CSS/images/singleStar.png" alt="chicagostar" />
         </div>
-        <div>
+
+      </div>
+
         <div class="field has-addons">
           <div class="control">
             <input class="input is-large col-md-6" type="text" id="cities" placeholder="Find things to do" name= "search">
           </div>
-
-
+         
 
         <div class="row text-center">
-          <div class="dropdown is-active"> 
-              <div class="dropdown-trigger">
-                
-                    <select id="searchSelector" class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                      <option class="icon is-small" value="0">Please Select</option> 
-                      <i class="fas fa-angle-down" aria-hidden="true">
-                      </i>
+          <div class="dropdown is-active">
+            <div class="dropdown-trigger">
+                  <select id="searchSelector" class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <option class="icon is-small" value="0">Please Select</option>
+                    <i class="fas fa-angle-down" aria-hidden="true">
+                    </i>
+
+            <!-- </div> -->
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <option class="dropdown-item" value="1">Performer</option>
+                    <hr class="dropdown-divider">
+                    <option class="dropdown-item" value="2">Venue</option>
+                    <hr class="dropdown-divider">
+                    <option class="dropdown-item" value="3">Zip Code</option>
+                </div>
               </div>
-              <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                  <div class="dropdown-content">
-                      <option class="dropdown-item" value="1">Performer</option>
-                      
-                      <hr class="dropdown-divider">
-                      <option class="dropdown-item" value="2">Venue</option>
-                      
-                      <hr class="dropdown-divider">
-                      <option class="dropdown-item" value="3">Zip Code</option>
-                    </select>
-                  </div>
-              </div>
-          </div>
-    
+                  </select>
+                </div>
+            </div>
+        </div>
+              
             <button
               type="button"
               id="submit"
-              class="button is-primary text-center"
+              class="button text-center is-primary"
               data-toggle="modal"
               data-target="#citesModal"
             >
               Search
             </button>
           </div>
-        </div>
+        <!-- </div> -->
       </div>
 
       <div class="table-container">
         <div class="row">
-          
-          <div class="col-md-6" id="event-wrap">
-=======
-               <!-- The bottom two header should only populate when there are no results to return -->
+
+          <div id="event-wrap">
+            <div class="col-md-6 box">
+              
+              <!-- The bottom two header should only populate when there are no results to return -->
                <h1 class="sryMsg"></h1>
                <h3 class="sryMsgSub"></h3>
 
@@ -146,18 +149,10 @@
                <a href="" class="eventLink"></a>
                <div class="dynoPic">
                  <img src="" class="eventImg">
-               </div>
-               
-          </div>
-                
-        </div>
-      </div>
-
-=======
-
-
-        </div>
-      </div>
+               </div> 
+              
+            </div>
+           </div>     
 
       <h1>Events Map</h1>
 
