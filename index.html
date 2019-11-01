@@ -26,56 +26,68 @@
     />
   </head>
 
-  <!--Header-->
 
   <body>
 
-
-      <div class="container">
-          <header>
+    <header>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+              <div class= "dropdown is-active">
+                <div class="subnav">
+                      <div class="dropdown-trigger">
+                        <select id="concerts" class="subnavbtn" class="button" aria-haspopup="true" aria-controls="dropdown-menu"><i class="caret-down"></i>
+                      </div>
+                  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                      <div class="subnav-content">
+                        <option class="dropdown-item" value=0>Concerts</option>
+                        <option class="dropdown-item" value=1>Hip Hop</option>
+                        <option class="dropdown-item" value=2>Jazz</option>
+                        <option class="dropdown-item" value=3>Rock</option>
+                      </div>
+                  </div>        
+                        </select>
+                </div>
+              </div>
               
-                  <div class="navbar">
-                          <a href="#home">Home</a>
-                          <div class="subnav">
-                            <button class="subnavbtn">Concerts<i class="caret-down"></i></button>
-                            <div class="subnav-content">
-                              <a href="#hiphop">Hip Hop</a>
-                              <a href="#jazz">Jazz</a>
-                              <a href="#dance">Dance</a>
-                            </div>
+              <div class= "dropdown is-active">
+                  <div class="subnav">
+                        <div class="dropdown-trigger">
+                          <select id= "arts" class="subnavbtn" class="button" aria-haspopup="true" aria-controls="dropdown-menu"><i class="caret-down"></i>
+                        </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="subnav-content">
+                          <option class="dropdown-item" value=0>Arts & Theatre</option>
+                          <option class="dropdown-item" value=1>Play</option>
+                          <option class="dropdown-item" value=2>Musical</option>
+                          <option class="dropdown-item" value=3>Circus</option>
+                        </div>
+                    </div>        
+                          </select>
+                  </div>
+                </div>
+                
+                <div class= "dropdown is-active">
+                    <div class="subnav">
+                          <div class="dropdown-trigger">
+                            <select id= "sports" class="subnavbtn" class="button" aria-haspopup="true" aria-controls="dropdown-menu"><i class="caret-down"></i>
                           </div>
-                          <div class="subnav">
-                            <button class="subnavbtn">Arts & Theatre <i class="caret-down"></i></button>
-                            <div class="subnav-content">
-                              <a href="#Play">Play</a>
-                              <a href="#musical">Musical</a>
-                              <a href="#Circus">Circus</a>
-                              
-                            </div>
-                          </div>
-                          <div class="subnav">
-                            <button class="subnavbtn">Sports <i class="caret-down"></i></button>
-                            <div class="subnav-content">
-                              <a href="#football">Football</a>
-                              <a href="#basketball">Basketball</a>
-                              <a href="#baseball">Baseball</a>
-                              <a href="#hockey">Hockey</a>
-                            </div>
-                          </div>
-                          <div class="subnav">
-                          <button class="subnavbtn">Family <i class="caret-down"></i></button>
+                      <div class="dropdown-menu" id="dropdown-menu" role="menu">
                           <div class="subnav-content">
-                              <a href="#ONICE">ON ICE</a>
-                           <a href="#Circus">Circus</a>
-                               </div>
+                            <option class="dropdown-item" value=0>Sports</option>
+                            <option class="dropdown-item" value=1>Basketball</option>
+                            <option class="dropdown-item" value=2>Baseball</option>
+                            <option class="dropdown-item" value=3>Hockey</option>
+                            <option class="dropdown-item" value=4>Football</option>
                           </div>
+                      </div>        
+                            </select>
                     </div>
-      </div>
-                      <!-- </div>
-                   </div> -->
+                  </div>
+              
+              
                         
   
-      </header>  
+    </header>  
       <div class="container">
       <div class="jumbotron">
         <div class="mainHeading">

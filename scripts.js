@@ -4,7 +4,7 @@ var myKey= "&client_id=MTY5MzA1NDd8MTU3MTg3NTc4Mi40NA";
 var byVenues= "/venues?q=";
 var byEvents= "/events?";
 var byPerformers="/performers?";
-var byZip= "/venues?postal_code=";
+var byZip= "/events?postal_code=";
 var userInput="q=";
 
 
@@ -57,7 +57,11 @@ function callEvents(){
         
 
     }else if(searchSelector==="3"){
-        console.log("search zips")
+        console.log("search zips");
+        settings.url= seatGeekBase+byZip+userInput+myKey;
+        console.log(settings.url);
+        $.ajax(settings).then(basicResults);
+
     };        
 
 
