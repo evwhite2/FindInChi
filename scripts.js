@@ -12,14 +12,7 @@ $("#submit").on("click", callEvents);
 
 function callEvents(){
 
-    $(".headLine").empty();
-        $(".venueName").empty();
-        $(".eventLocation").empty();
-        $(".eventDate").empty();
-        $(".eventImg").attr("src", "");
-        $(".eventLink").empty();
-        $(".sryMsg").empty();
-        $(".sryMsgSub").empty();
+        $("#event-wrap").empty();
 
     var initialInput= $("#cities").val().trim();
     userInput=initialInput;
@@ -38,30 +31,16 @@ function callEvents(){
     console.log(searchSelector, "is my search value");
 
     if(searchSelector==="0"){
-        
-        console.log("basic");
         $.ajax(settings).then(basicResults);
-
     }else if (searchSelector==="1"){
-        // console.log(settings.url);
-        
         settings.url=seatGeekBase+byPerformers+"q="+userInput+myKey;
         $.ajax(settings).then(performerResults);
-        
     }else if(searchSelector==="2"){
-        console.log("search venues");
-        
         settings.url=seatGeekBase+byVenues+userInput+"&city=chicago"+myKey;
-        // console.log(settings.url);
         $.ajax(settings).then(venueResults);
-        
-
     }else if(searchSelector==="3"){
-        console.log("search zips");
         settings.url= seatGeekBase+byZip+userInput+myKey;
-        console.log(settings.url);
         $.ajax(settings).then(basicResults);
-
     };        
 
 
@@ -172,8 +151,7 @@ function callEvents(){
     };
 
     function venueResults(response){
-        console.log("we got to the venue results function")
-        console.log(response);
+        console.log("we got to the venue results function", response)
 
         if (response.venues.length===0){
 
@@ -214,7 +192,134 @@ function callEvents(){
         }
 
 
-    }
-
+    };
+    
 
 }
+
+
+$("#concerts").on("click", navConcerts);
+$("#arts").on("click", navArts);
+$("#sports").on("click", navSports);
+
+var navSettings= 
+        {
+            url: seatGeekBase+byEvents+myKey,
+            method:"GET"
+        };
+
+function navConcerts(){
+    $("#event-wrap").empty();
+    var navTopicVal= $("#concerts").val();
+
+    if (navTopicVal==="1"){
+        navSettings.url=seatGeekBase+byEvents+"q=chicago%rap"+myKey
+        console.log(navSettings.url)
+        $.ajax(navSettings).then(navTopicResults)
+    }else if(navTopicVal==="2"){
+        navSettings.url=seatGeekBase+byEvents+"q=jazz%chicago"+myKey
+        console.log(navSettings.url)
+        $.ajax(navSettings).then(navTopicResults)
+    }else if(navTopicVal==="3"){
+        navSettings.url=seatGeekBase+byEvents+"q=rock%chicago"+myKey
+        $.ajax(navSettings).then(navTopicResults)
+    
+    }
+}
+
+function navArts(){
+    $("#event-wrap").empty();
+    var navTopicVal= $("#arts").val();
+
+    if (navTopicVal==="1"){
+        navSettings.url=seatGeekBase+byEvents+"q=play%chicago"+myKey
+        $.ajax(navSettings).then(navTopicResults)
+    }else if(navTopicVal==="2"){
+        navSettings.url=seatGeekBase+byEvents+"q=musical%chicago"+myKey
+        $.ajax(navSettings).then(navTopicResults)
+    }else if(navTopicVal==="3"){
+        navSettings.url=seatGeekBase+byEvents+"q=circus%chicago"+myKey
+        $.ajax(navSettings).then(navTopicResults)
+    }
+}
+
+function navSports(){
+    $("#event-wrap").empty();
+    var navTopicVal= $("#sports").val();
+
+    if (navTopicVal==="1"){
+        navSettings.url=seatGeekBase+byEvents+"q=basketball%rap"+myKey
+        console.log(navSettings.url)
+        $.ajax(navSettings).then(navTopicResults)
+    }else if(navTopicVal==="2"){
+        navSettings.url=seatGeekBase+byEvents+"q=baseball%chicago"+myKey
+        console.log(navSettings.url)
+        $.ajax(navSettings).then(navTopicResults)
+    }else if(navTopicVal==="3"){
+        navSettings.url=seatGeekBase+byEvents+"q=hockey%chicago"+myKey
+        console.log(navSettings.url)
+        $.ajax(navSettings).then(navTopicResults)
+    
+    }else if(navTopicVal==="4"){
+        navSettings.url=seatGeekBase+byEvents+"q=football"+myKey
+        console.log(navSettings.url)
+        $.ajax(navSettings).then(navTopicResults)
+    }
+}
+
+
+function navTopicResults(response){
+
+    $("#event-wrap").empty();
+
+    console.log("we got to basic response function for NAVBAR:", response);
+
+    if (response.events.length==0){
+        var sryMsg=$("<h1>").addClass("sryMsg");
+        sryMsg.text("Sorry we couldn't find any upcoming events for this topic")
+
+        $("#event-wrap").append(sryMsg);
+
+    }else{
+
+        for (var i= 0; i<response.events.length; i++) {
+        
+            var newEle0= $("<div>");
+            var newEle1= $("<div>");
+            var newEle2= $("<div>");
+            var newEle3= $("<div>");
+            var newEle4=$("<div>");
+            var newLink= $("<a>");
+            var newImg=$("<img>");
+
+            newEle0.addClass("headLine");
+            newEle1.addClass("venueName");
+            newEle2.addClass("eventLocation");
+            newEle3.addClass("col-md-6");
+            newEle4.addClass("eventDate");
+            newEle3.id = "words" + i;
+            newEle3.addClass("box");
+            newLink.addClass("eventLink");
+
+            newEle0.text(response.events[i].title);
+            newEle1.text(response.events[i].venue.name);
+            newEle2.text(response.events[i].venue.address);
+            newEle4.text(response.events[i].datetime_local);
+            newLink.attr("href", response.events[i].url);
+            newLink.text("Click here to find tickets");
+
+            newEle3.append(newEle0, newEle1, newEle2, newEle4, newLink);
+
+            $("#event-wrap").append(newEle3);
+
+            }
+            if(response.events[i].url==""){
+                console.log("no link available");
+            }else {
+                newLink.text("Click here to find tickets");
+                $(".event-wrap").append(newLink);
+            }
+    }   
+
+};
+
