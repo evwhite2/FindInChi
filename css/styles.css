@@ -114,3 +114,48 @@
   font-family: "Kaushan Script", cursive;
   padding: 15px;
 }
+
+@media only screen and (max-width: 550px){
+
+  #cities{
+    font-size:16px;
+  }
+  #mapLabel{
+    font-size:25px;
+    padding:5px;
+  }
+  #searchSelector{
+    font-size: 9px;
+    height: 100%;
+    margin:3px;
+    width: 75px;
+    z-index:1000;
+    
+  }
+  #submit{
+    font-size: 12px;
+    height:100%;
+    margin:3px;
+    width:45px;
+    z-index:1000
+  }
+  
+  .description{
+    font-size: 16px;
+    margin:5px
+  }
+  .dropdown-item{
+    font-size:9px
+  }
+  .input{
+    position:fixed;
+  }
+  .logo{
+    font-size:35px;
+    margin:5px;
+  }
+  .star{
+    height:50px;
+  }
+  
+  }
