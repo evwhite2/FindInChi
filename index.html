@@ -180,24 +180,59 @@
       <div id="googleMap" style="width:100%;height:400px;"></div>
 
       <script>
-        function myMap() {
-          var mapProp = {
-            center: new google.maps.LatLng(41.8981, -87.6298),
-            zoom: 15
-          };
-          var map = new google.maps.Map(
-            document.getElementById("googleMap"),
-            mapProp
-          );
-        }
-      </script>
+            // Initialize and add the map
+            function initMap() {
+              // The location of events
+              var logic = {lat: 42.0053, lng: -87.8878};
+              var gabriel ={lat: 41.8807, lng: -87.6742};
+              var blueman={lat: 41.938930,lng:-87.649080};
+              var jerry= { lat: 41.8853, lng:-87.6276};
+              var bears= {lat: 41.8623,lng:-87.6167};
+              
+            
+              
+              // The map, centered at Chicago
+              var map = new google.maps.Map(
+                  document.getElementById('googleMap'), {zoom: 10, center: logic});
+              // The marker, positioned at Event Locations
+              var marker = new google.maps.Marker({position: logic, title:'Logic-Allstate Arena', map: map});
+              var marker = new google.maps.Marker({position: gabriel,title:'Gabriel Iglesias-United Center', map:map});
+              var marker = new google.maps.Marker({position: blueman,title:'Blue Man-Briar Street Theatre', map:map});
+              var marker = new google.maps.Marker({ position: bears,title:'Chicago Bears-Solider Field', map:map});
+              var marker = new google.maps.Marker({position: jerry,title:'Jerry Seinfield-Chicago Theatre', map:map});
+             
+              var contentString = '<div id="content">'+
+  '<div id="siteNotice">'+
+  '</div>'+
+  '<h1 id="firstHeading" class="firstHeading">Jerry Seinfield</h1>'+
+  '<div id="bodyContent">'+
+  '<p><b>Chicago Theatre</b>, also referred to as <b>Balaban and Katz</b>, is a landmark ' +
+  'theater located on North State Street '+
+  'in the Loop area of Chicago, Illinois '+
+  
+  'Event Details:' +
+  'Address'+
+  '175 North State Street Chicago, IL 60601'+
+  'Nov 2, 2019 at 7 PM https://seatgeek.com/jerry-seinfeld-tickets/comedy/2019-11-02-7-pm/4940504'
+  'Ticket Site.</p>'+
+  '</div>'+
+  '</div>';
 
-      <script
-        async
-        defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcLA2582MgE2m9HYz4nTNwnIHNXk3qRO4&callback=myMap"
-        type="text/javascript"
-      ></script>
+var infowindow = new google.maps.InfoWindow({
+content: contentString
+});
+
+
+marker.addListener('click', function() {
+infowindow.open(map, marker);
+});
+}
+            
+
+           
+                </script>
+
+      
 
       <footer>Footer</footer>
     </div>
@@ -205,5 +240,9 @@
     <!-- all js here -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="assets/scripts.js"></script>
+      <script
+        async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcLA2582MgE2m9HYz4nTNwnIHNXk3qRO4&callback=initMap"
+        type="text/javascript"
+      ></script>
   </body>
 </html>
