@@ -20,12 +20,10 @@ function myMap()
             zoom:12, scrollwheel: false, draggable: false,
             mapTypeId:google.maps.MapTypeId.ROADMAP
             };
-            //THIS VARIABLE IS NEVER CALLED:
+          
             var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-            
             }
            
-            //PLEASE READ WHAT "BYEVENT" ACTUALLY IS. YOU HAVE A MAJOR SCOPE ISSUE HERE, AND YOU'RE NOT PROCESSING INFORMAITON FROM THE RIGHT THING.
 
             function makeTextBox(i){	//this function makes the info box that appears everytime you click on a marker 
 
@@ -45,7 +43,6 @@ function myMap()
       
       function makeMarkers(){	//this function creates the markers that will appear on the map
 
-        //WHAT IS COUNTER? iF IN THE API, YOU CAN IGNORE ME, BUT IF IT'S A VARIABLE YOU CREATED, THEN YOU NEED TO THINK ABOUT WHAT IT'S DOING, BECUASE AS OF RIGHT NOW I DON'T SEE HOW THIS COUNTER IS WORKING
 
         //checks if there are already markers on the map
         if (counter >1){
