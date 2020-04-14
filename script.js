@@ -171,7 +171,6 @@ function myMap()
                       var time= response.events[i].datetime_local;
                       time = time.split("");
                       time.splice();
-                      console.log(time);
                       newEle4.text(time);
                       newLink.attr("href", response.events[i].url);
                       newLink.text("Click here to find tickets");
